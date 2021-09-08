@@ -251,38 +251,6 @@ app.get('/api/course/:pk', (request, response) => {
 	});
 });
 
-// let searchItem = (userId, id, response, callback) => {
-// 	const searchQuery = "select itemId from items where itemId = ? and userId = ? and status = 1";
-// 	connection.promise().execute(searchQuery, [id, userId])
-// 	.then((rows) => {
-// 		const result = rows;
-//         // console.log(result[0]);
-//         console.log(id);
-// 		if (result.length != 0) 
-// 		{
-// 			const resultItemId = result[0];
-//             const resultId = resultItemId[0].itemId;
-//             console.log(resultId);
-// 			if(resultId === id)
-// 			{
-//                 callback();
-// 			}
-// 			else
-// 			{
-//                 response.status(403).send({"Message": "You have no access."});
-// 			}
-// 		}
-// 		else
-// 		{
-// 			response.status(404).send({ "Message": "Syllabus not found." });
-// 		}
-// 	})
-// 	.catch((error) => {
-// 		console.log(error);
-// 		response.status(500).send({"Message": "Internal server error."});
-// 	});
-// }
-
 let searchItem = (userId, syllabusId, response, callback) => {
 	const searchQuery = "select userId from items where itemId = ? and status = 1";
 	connection.promise().execute(searchQuery, [syllabusId])
